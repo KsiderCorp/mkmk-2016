@@ -1,0 +1,282 @@
+// main: ../style.less
+
+.single-top {
+    
+    padding: 1em 2em;
+    background-color: #7f8c8d;
+    color: #fff;
+    a {
+        color: #ecf0f1;
+    }
+}
+.single-wrap {
+    
+    margin-top: 5%;
+    
+    .block {
+        width: 60%;
+        padding: 0;
+    }
+}
+
+.single-wrap-content {
+    background-color: #fff;
+    padding: 2em;
+    
+    .views {
+        display: inline-block;
+        padding: 2em 0;
+        color: #ddd;
+        font-size: 0.8em;
+    }
+}
+
+.single-wrap-bookmark {
+    
+    padding: 5% 2em;
+    color: #fff;
+
+    
+    a {
+        color: #fff;
+        text-decoration: none;
+    }
+    
+    .tag_cloud {
+        text-transform: lowercase;
+    }
+    
+}
+
+.comments {
+    background-color: #fff;
+    padding: 2em;
+}
+
+// page
+
+.page {
+    margin: 10% auto;
+    width: 60%;
+    &-title {
+    padding:1em 2em;
+        
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: #fff;
+  text-align: center;
+    }
+    .page-content {
+        padding: 2em;
+        background-color: #fff;
+    }
+    
+    .download {
+
+        ul {
+            li {
+                display: block;
+                a {
+                    padding: 1em 0;
+                    display: block;
+                    position: relative;
+                    color: #fff;
+                    &:before {
+                        position: absolute;
+                        left: -1.2em; top: 1em;
+                        display: inline-block;
+                                                                     
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.single-similar {
+    padding: 5% 0;
+}
+.similar-post {
+    padding: 1em;
+    font-size: 0.8em;
+    background-color: #fff;
+    &:nth-child(1) {margin-right: 0.5em;}
+    &:nth-child(2) {margin: 0 0.5em;}
+    &:nth-child(3) {margin-left: 0.5em;}
+    a {
+        text-decoration: none;
+    }
+    
+    .similar-authors {
+        padding-top: 0.5em;
+        font-size: 0.9em;
+        a {
+         color: #7f8c8d;   
+        }
+    }
+}
+
+
+// Authors list
+
+.autsearch {
+    background-color: #fff;
+       padding: 1em;
+    input {
+        display: block;
+        text-align: center;
+        outline: 0; 
+        width: 60%; margin: 0 auto;
+        padding: 1em 2em;
+
+        border: 2px solid #ddd;
+//      padding-bottom: 0.3em; border-bottom: 1px solid #000;
+        border-radius: 4px;
+    }
+}
+
+.author-search_list {
+    background-color: #fff;
+    padding: 2em;
+    
+    ol {
+        padding: 0;margin: 0;
+        
+        li {
+            display: block;
+            padding: 0.5em 0;
+        }
+    }
+}
+
+.statistics {
+    background-color: #fff;
+    padding: 2em;
+    
+    .stat-discr {
+        font-size: 0.5em;
+        color: #7f8c8d;
+    }
+    
+    ol {
+        li {
+         font-size: 1.2em;
+        padding: 0.5em 0;
+        }
+    }
+}
+
+
+
+/* frontpage contact form */
+
+.comtus {
+	padding: 5% 0;
+
+    background:#212121;
+	color: #fff;
+     
+    .sumit_txt {
+	padding: 1em;
+	font-size: 1.3em;
+    }
+}
+	
+.contblock{
+	position:absolute; 
+	margin:0 auto; 
+	display:block;
+	font-size:120%;
+	width:100%; 
+	color:#fff;
+}
+	
+	
+form.contactform  {
+	color:#fff; 
+	background: #313131;
+	padding:2em 0;
+    margin: 0 -2em;
+    h3 {
+        margin:0; 
+        text-align: center;
+    }
+    .mfp-close{color:#fff;}
+}
+ 
+	
+.inpblock {
+	position: relative;
+	width:80%;
+	margin:0 auto;
+	color:#fff;}
+	
+form.contactform  input, 
+form.contactform  textarea {
+      box-sizing: border-box;
+      padding:1em;
+
+      outline:0; 
+      border:1px solid #fff;
+      background: #313131;
+      display:block; 
+      width:100%;
+      margin:0 auto;
+}
+form.contactform  input:focus,
+form.contactform  textarea:focus {border:1px dotted #fff;}
+  
+form.contactform  label {
+  display:block; 
+  width:50%;
+  margin:0.5em auto 0;}
+
+.fileupl  {
+	border: 1px solid #fff;
+	width:80%;
+    margin:1em auto;
+ 	padding:2em 0;
+	background:#313131 url(img/pattern-dark.svg);
+}
+.fileupl:hover  {
+	background:#202020 url(img/pattern-dark.svg);
+}
+	
+form.contactform  input[type="file"]{
+	position:absolute;
+	top:0; bottom:0; left:0; right:0;
+	outline: none; 
+	padding:2em;
+	z-index:9;
+	opacity: 0;
+}	
+	
+p.filep, 
+.fileupl p  {
+	width: 100%;
+	height: 100%;
+	margin:0;
+	text-align: center;
+	color: #fff;
+}
+
+a.clear {z-index:9999;}	
+	
+form.contactform   input[type=submit] {
+	padding:1em; 
+	width:20%; display:block;
+	margin:1em auto;
+	color:#fff;
+	background:#FF5722; 
+	border: 3px solid #FF5722;}
+
+
+
+
+
+
+
+
+
+

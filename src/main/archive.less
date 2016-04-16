@@ -1,0 +1,116 @@
+// main: ../style.less
+
+// front-page arhive
+.archive-title {
+    padding: 1em;
+}
+
+.mkmk-archive {
+    background-color: #fff;
+    padding: 2em 0;
+    
+    ul.archive {
+        text-align:center;
+        margin: 0;
+        padding: 1em;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        
+        & > li {
+            font-size:1.8em;
+            display:block;
+            float:left;
+            padding:1em 0;
+            margin:0;
+            width:20%; 
+            &:hover {
+                box-shadow: 0 0 0 1px #ddd; 
+            }
+            
+            a {
+              	font-weight:300;
+                text-decoration:none;
+                color:#3498db;
+                &:hover {
+                   color: #e74c3c; 
+                }
+            }
+            & > a {
+                color: #212121;
+            }
+            
+            ul {
+                
+                padding:1em 0;
+                margin:0 auto;
+                display:block;
+                width:50%;
+                
+                li {
+                   font-size:0.7em;
+                    margin:0 auto;
+                    padding:0.2em 0;
+                    display:block;
+                    float:left;
+                    width:50%; 
+                }
+            }
+            
+        }
+    }
+}
+
+// Category
+
+.archive-category {
+    &_header {
+        text-align: center;
+        color: #fff;
+        
+  font-size: 1.2em;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+
+        padding: 5% 0;
+    }
+}
+
+
+.archive-post {
+      margin: 1em auto;  
+      background-color: #fff;
+      padding: 2em;
+    
+    width: 60%; 
+    
+    .breadline {
+        font-size: 0.8em;
+        color: #95a5a6;
+        a {
+            color: #95a5a6;
+        }
+    }
+    .entitle {
+    display: block;
+    font-size: 1.3em;
+    padding: 1em 0;   
+    text-decoration: none;
+    } 
+}
+
+// keywords
+
+.kewords {
+    background-color: #fff;
+    width: 60%;
+    margin: 0 auto;
+    text-align: justify;
+    a {
+        text-decoration: none;
+    }
+}

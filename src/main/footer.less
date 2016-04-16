@@ -1,0 +1,90 @@
+// main: ../style.less
+
+
+.editfootblock {
+	position: relative;
+	z-index: 15;
+	margin-top:2em;
+	font-size:14px;
+	background:rgba(40,40,40,0.5); 
+	color:#f2f2f2; 
+	padding:4em 0;
+    
+}
+.footadress {padding-top:1em;}
+
+.copyright {
+    position:relative;
+    padding: 0.2em;
+    &:before {
+	display:inline-block; 
+    margin-right: 1em;
+	content:'\00a9'; 
+	}
+
+}
+
+.editfootblock ul{
+    margin:0; 
+    padding:1em 0 0; 
+    list-style-type: none;
+    
+    &.logoul{padding:0;}
+    
+    li{
+        line-height: 150%;
+        
+        a {
+            color:#fff; 
+            text-decoration:none; 
+            &:hover{color:#1abc9c;}
+            
+            &.top10 {
+                display: inline-block;
+                padding: 0.1em 0.3em;
+                background-color: #fff;
+                color: #313131;
+                &:hover {
+                    background-color: #e74c3c;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+
+a.footlogo {
+	color:#000;
+	display:block; 
+	border-left:4px solid #2980b9; 
+	padding:1em; margin:0;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+
+}
+	
+.webmaster, 
+.izdal {padding:0 1em;}
+.izdal.social {
+    padding:0;
+    ul{
+        text-align:right;
+    }
+}
+
+.design {margin:0 auto;}
+
+.webinfo {
+  width: auto;
+  font-size:0.9em;
+  margin: 0 auto;
+  color: #7f8c8d;
+  padding: 2em 0 0;
+  margin-top: 4em;
+    
+    text-align: center;
+    
+    a {
+  color: #7f8c8d;
+}
+}

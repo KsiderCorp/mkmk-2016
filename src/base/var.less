@@ -1,0 +1,75 @@
+// main: ../style.less
+
+
+@gray: #34495e; // темносерый
+@darkgray: #2c3e50; // еще более темносерый
+@lightgray: #7f8c8d; // светлосерый
+
+@white: #ecf0f1; // белый
+@red: #c0392b; // красный
+@blue: #2980b9;// синий
+
+@linkhover: #d35400;
+@linkactive: #d35400;
+
+.animation {
+-webkit-transition: all 0.4s ease-in-out;
+transition: all 0.4s ease-in-out;}
+
+.bgc {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+.upper(@fz) {
+    font-size: @fz;
+    letter-spacing: @fz * 0.2;
+    text-transform: uppercase;
+}
+.shadow(@shc, @op) {
+        position: absolute;
+        top: 0;bottom: 0;right: 0;left: 0;
+        z-index: 1;
+        background-color: @shc;
+        opacity: @op;  
+        }
+
+.block_margin { 
+    margin: 0 auto; 
+    margin-top: 5%;
+    margin-bottom: 2%;  
+    width: 60%;
+.max(35.5em, { width: 80%; });   
+    }
+
+
+a[href*='.pdf']:before,
+a[href*='.doc']:before,
+a[href*='.xls']:before,
+a[href*='youtu.be']:before,
+a[href*='.zip']:before{
+        font-family: "untitled-font-1" !important;
+        font-style: normal !important;
+        font-weight: normal !important;
+        font-variant: normal !important;
+        text-transform: none !important;
+        speak: none;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        }
+
+a[href*='.pdf']:before {content: "\e1fe ";}
+a[href*='.doc']:before {content: "\e0b6 ";}
+a[href*='.zip']:before {content: "\T ";}
+a[href*='.xls']:before {content: "\T ";}
+a[href*='.ppt']:before {content: "\T ";}
+a[href*='youtu.be']:before {content: "\$ ";}
+
+
+.round(@rad, @col){
+            .animation;
+            width: @rad;height: @rad;
+            border-radius: 50%;
+            box-shadow: 0 0 0 2px @col;
+}
+
