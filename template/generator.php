@@ -18,35 +18,58 @@ get_header(); ?>
 <?php endwhile; else : endif; ?>
 
 <style>
-    .block_margin {
+    table {
         background-color: #fff;
         padding: 2em;
     }
-    .vol {
+    
+    tr {
+     padding: 1em;   
+    }
+
+    thead > tr {
+        
         text-align: center;
+    }
+    tbody {
+        border: 1px solid #ddd;
     }
 </style>
 
-<div class="block_margin ">
-<?php 
-$terms = get_terms( 'category', array('parent' => 0, 'hierarchical' => 0, 'hide_empty' => 1, 'include' => '86,87,88' ) );
-foreach ( $terms as $term ){ ?>
 
-<div class="vol">
-     <h1><?php echo $term->name; ?></h1>
-</div>
+<table>
+    <thead>
+        <tr>
+            <td>post_id</td>
+            <td>post_name</td>
+            <td>post_author</td>
+            <td>post_date</td>
+            <td>post_type</td>
+            <td>post_status</td>
+            <td>post_title</td>
+            <td>post_content</td>
+            <td>post_category</td>
+            <td>post_tags</td>
+            <td>tax_authors</td>
+            <td>field_549271bbc2351</td>
+            <td>field_549271c8c2352</td>
+
+        </tr>
+   </thead>
+                                                       
+<?php 
+$terms = get_terms( 'category', array('parent' => 0, 'hierarchical' => 0, 'hide_empty' => 1, 'include' => '6,86,87,88' ) );
+foreach ( $terms as $term ){ ?>                                                       
 
 <?php 
-$numers = get_term_children( $term->term_id, 'category');
+    $numers = get_term_children( $term->term_id, 'category');
 foreach ( $numers as $child ){ 
- $term = get_term_by( 'id', $child, 'category' );
-	$termname = $term->name;     
+    $term = get_term_by( 'id', $child, 'category' );
+    $termname = $term->name;     
       ?>
-
-<div class="vol">
-     <h4><strong><?php echo $termname; ?></strong></h4>
-</div>
-
+    													
+    <tbody class="how-<?php echo $termname; ?>"> 
+       
 <?php 
 $arg = array( 
     'post_type' => 'post',
@@ -61,39 +84,40 @@ $arg = array(
 			'terms' => $term->term_id,
             )),);
 $query = new WP_Query( $arg );?>
-<?php while ( $query->have_posts() ) : $query->the_post();?>
-
-<div class="pure-g">
-   <div class="pure-u-1">
-<h3><?php the_title(); ?></h3>
-<h4><?php the_category(' - '); ?> (<?php the_time('Y'); ?>), Страницы: <?php the_field('pages'); ?>, </h4>
-    </div>  
-    <div class="pure-u-1-2">
-<p class="authors">
-<?php echo get_the_term_list( $post->ID, 'authors', '', ', ', '' ); ?>
-</p>
-    </div>
-
-	    <div class="pure-u-1">
-<h4>Аннотация</h4>
- <?php the_content(); ?>
-
-<p>
-<?php the_tags('', ', '); ?>
-</p>
-	    </div>
-
-</div>
-<hr>
+<?php while ( $query->have_posts() ) : $query->the_post();?>    
+        <tr>
+            <td data-td="post_id"></td>
+            <td data-td="post_name"></td>
+            <td data-td="post_author">masha</td>
+            <td data-td="post_date">29.02.<?php the_time('Y'); ?> 0:00:00</td>
+            <td data-td="post_type">post</td>
+            <td data-td="post_status">publish</td>
+            <td data-td="post_title"><?php the_title(); ?></td>
+            <td data-td="post_content"><?php the_content(); ?></td>
+            <td data-td="post_category">
+            <?php strip_tags(the_category(' - ')); ?>
+            </td>
+            <td data-td="post_tags">
+            <?php strip_tags(the_tags('', ', ')) ; ?>
+            </td>
+            <td data-td="tax_authors">
+            <?php echo strip_tags(get_the_term_list( $post->ID, 'authors', '', ', ', '' )) ?>
+            </td>
+            <td data-td="страницы"><?php the_field('pages'); ?></td>
+            <td data-td="УДК"></td>
+    </tr>
+    
 <?php wp_reset_postdata(); ?>
 <?php endwhile; ?>
 
-<?php  } ?>
-<hr> 
-<?php  } ?> 
-
-</div>
-
+ 
+    
+   </tbody> 
+<?php  } ?>    
+   
+<?php  } ?>   
+   
+</table>
 
 
 
