@@ -58,7 +58,7 @@ get_header(); ?>
    </thead>
                                                        
 <?php 
-$terms = get_terms( 'category', array('parent' => 0, 'hierarchical' => 0, 'hide_empty' => 1, 'include' => '6,86,87,88' ) );
+$terms = get_terms( 'category', array('parent' => 0, 'hierarchical' => 0, 'hide_empty' => 1, 'include' => '86,87,88' ) );
 foreach ( $terms as $term ){ ?>                                                       
 
 <?php 
@@ -95,7 +95,7 @@ $query = new WP_Query( $arg );?>
             <td data-td="post_title"><?php the_title(); ?></td>
             <td data-td="post_content"><?php the_content(); ?></td>
             <td data-td="post_category">
-            <?php strip_tags(the_category(' - ')); ?>
+            <?php strip_tags(the_category(', ')); ?>
             </td>
             <td data-td="post_tags">
             <?php strip_tags(the_tags('', ', ')) ; ?>
