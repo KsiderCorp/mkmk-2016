@@ -58,7 +58,7 @@ get_header(); ?>
    </thead>
                                                        
 <?php 
-$terms = get_terms( 'category', array('parent' => 0, 'hierarchical' => 0, 'hide_empty' => 1, 'include' => '86,87,88' ) );
+$terms = get_terms( 'category', array('parent' => 0, 'hierarchical' => 0, 'hide_empty' => 1, 'include' => '1' ) );
 foreach ( $terms as $term ){ ?>                                                       
 
 <?php 
