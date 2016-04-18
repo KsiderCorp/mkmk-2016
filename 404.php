@@ -5,12 +5,15 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 
 <head>
-<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?> />
+<meta http-equiv="Content-Type" content="<?php bloginfo("html_type"); ?> />
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <title>
 404
 </title>
+
 <link rel="alternate" type="application/rss+xml" title="<?php get_bloginfo('name'); ?>" href="<?php bloginfo('rss2_url'); ?>" />
 
 <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
@@ -19,59 +22,95 @@
 
 <?php wp_head(); ?>
 
-<?php
-  $bg = array('bg-01.jpg', 'bg-02.jpg', 'bg-03.jpg', 'bg-04.jpg', 'bg-05.jpg', 'bg-06.jpg', 'bg-07.jpg', 'bg-08.jpg', 'bg-09.jpg', 'bg-10.jpg', 'bg-11.jpg', 'bg-12.jpg' ); // array of filenames
-  $ic = array('war', 'body-cut', 'unicorn', 'body-overlay', 'car-burn', 'death-boiling', 'electrical-shock', 'execute-hanging', 'fell-down', 'garbage', 'head-shot-arrow', 'head-shot', 'hippie', 'nuclear', 'frankenstein', 'skull', 'zynga', 'head-stab-1', 'head-cut' ); // array of filenames
 
-  $i = rand(0, count($bg)-1); 
+
+
+</head>
+<body>
+<?php
+  $ic = array('war', 'body-cut', 'unicorn', 'body-overlay', 'car-burn', 'death-boiling', 'electrical-shock', 'execute-hanging', 'fell-down', 'garbage', 'head-shot-arrow', 'head-shot', 'hippie', 'nuclear', 'frankenstein', 'skull', 'zynga', 'head-stab-1', 'head-cut' ); // array of filenames
   $z = rand(0, count($ic)-1); 
-  $selectedBg = "$bg[$i]"; 
   $selectedIc = "$ic[$z]"; 
 ?>
 
 <style>
-
+ 
 .page404 {
 	position:relative;
-	background:#c0392b url('<?php bloginfo("template_url"); ?>/img/bc/<?php echo $selectedBg; ?>');
 	overflow:hidden;
 	height:100%;
-	background-size: cover;
-	background-repeat: no-repeat;
+    
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
     align-items: center;
-}
-
-.bigttl { 
-	line-height: 100%;
-	font-size:12em;
-	width:60%; 
-	margin:0 auto;
-    text-align: center;
-    font-weight: bold;
-    color: #fff;
-    text-shadow: 2px 2px 10px #000;
+    
     }
-
-
+    
+    .bigttl {
+        background-color: rgba(49,49,49,0.5);
+        padding: 2em;
+        font-size: 4em; font-weight: bold;
+        color: #fff;
+        text-align: center;
+    } 
+    span {
+        font-size: 0.2em;
+        display: block;
+    }
+   
 </style>
-
-</head>
-<body>
-
 	
 		
-<div class="page404">
+<div class="page404" id="rand">
 
 <div class="bigttl">
 <i class="icon-<?php echo $selectedIc; ?>"></i> 404
+
+<span><?php _e('Not found', 'trn'); ?></span>
 </div>
 
 </div>
 		
 		
 
-		<?php wp_footer(); ?>
+<?php wp_footer(); ?>
+   
+<script>
+    var allkey= 'd1cffee80470f8d8f649a0e40bfacf28';
+    var allbum= '72157648410164234';
+    var allCall = "https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key="+allkey+"&photoset_id="+allbum+"&format=json&extras=views,url_h&jsoncallback=?";
+
+$.getJSON(allCall, function(data){
+var a = 0;
+var bgr = new Array();    
+$.each(data.photoset.photo, function(i,photo){
+      var big = photo['url_h'];
+        bgr.push(big);
+      });
+
+var cit = data.photoset.photo.length+1;
+var bac = bgr[Math.round(Math.random()*cit)];
+var bacurl = bac;
+document.getElementById('rand').style.backgroundImage = 'url("'+bacurl+'")';   
+    });
+  	
+</script> 
+     
     </body>
 </html>
