@@ -43,7 +43,9 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 50%;
-    
+    background-image: url('https://source.unsplash.com/1600x900/?patterns');
+   /* background-image: url('https://source.unsplash.com/category/technology/1600x900');
+    */
     display: -webkit-flex;
     display: -moz-flex;
     display: -ms-flex;
@@ -62,27 +64,76 @@
     
     }
     
-    .bigttl {
-        background-color: rgba(49,49,49,0.5);
-        padding: 2em;
-        font-size: 4em; font-weight: bold;
+.p404p {
+        background-color: rgba(49,49,49,0.6);
+        padding:1em 2em;
+        padding-bottom: 0.5em;
+        font-size: 4em; 
+        font-weight: bold;
         color: #fff;
         text-align: center;
+    
+       /* background-image: url('https://c2.staticflickr.com/2/1495/26405211772_d299c54ee0.jpg');*/
+        background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
     } 
-    span {
-        font-size: 0.2em;
-        display: block;
+    
+.navigator {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    justify-content: space-between;
+     
+    background-color: rgba(49, 49, 49,0.8);
+    } 
+.navigator > a {
+    color: #fff;
+    text-align: center;
+    width: 50%;
+    padding: 2em 0;
+    display: block;
+    position: relative;
+    text-decoration: none;
     }
-   
+    .navigator > a:hover {
+    background-color: rgba(241, 196, 15,0.2);  
+    }    
+.navigator a span{
+    font-size: 1em;
+    
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    }   
 </style>
 	
 		
 <div class="page404" id="rand">
 
 <div class="bigttl">
-<i class="icon-<?php echo $selectedIc; ?>"></i> 404
+<div class="p404p">
+ <i class="icon-<?php echo $selectedIc; ?>"></i> 404   
+</div>
 
-<span><?php _e('Not found', 'trn'); ?></span>
+
+<div class="navigator">
+
+
+<a href="/old/">
+    <span><?php _e('Old Site', 'trn'); ?></span>
+</a>
+ 
+<a href="<?php echo home_url(); ?>">
+    <span><?php _e('Home', 'trn'); ?></span>
+</a>  
+<!--<a href="<?php echo home_url('/send/'); ?>">
+    <span><?php // _e('Rules', 'trn'); ?></span>
+</a>  -->
+
+</div>
+
 </div>
 
 </div>
@@ -92,7 +143,7 @@
 <?php wp_footer(); ?>
    
 <script>
-    var allkey= 'd1cffee80470f8d8f649a0e40bfacf28';
+/*    var allkey= 'd1cffee80470f8d8f649a0e40bfacf28';
     var allbum= '72157648410164234';
     var allCall = "https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key="+allkey+"&photoset_id="+allbum+"&format=json&extras=views,url_h&jsoncallback=?";
 
@@ -108,7 +159,7 @@ var cit = data.photoset.photo.length+1;
 var bac = bgr[Math.round(Math.random()*cit)];
 var bacurl = bac;
 document.getElementById('rand').style.backgroundImage = 'url("'+bacurl+'")';   
-    });
+    });*/
   	
 </script> 
      
