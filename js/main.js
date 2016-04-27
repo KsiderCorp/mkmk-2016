@@ -18,13 +18,21 @@ $("[data-toggle]").click(function() {
     });	
 });
     
-/*var words = $(".mkmk-name").text().split(" ");
-$(".mkmk-name").empty();
-$.each(words, function(i, v) {
-    $(".mkmk-name").append($("<span>").text(v));
-}); */   
 
+$('.file_attache-block input[type="file"]').change(function () {
+    this.parentNode.setAttribute('title', this.value.replace(/^.*[\\/]/, ''))
+});
     
+    
+// Owl
+    
+/*$('#statistics').bxSlider({
+        nextText:'<i class="icon-chevron-right-2"></i>',
+		prevText:'<i class="icon-chevron-left-2"></i>',
+//		auto: true,
+		infiniteLoop: true,
+		pager: false,
+});*/
   
     
 

@@ -85,13 +85,13 @@ $news = array(
 <div class="mkmk-authors">
   <?php // if( get_field('b_submit') ): the_field('b_submit'); else : endif; ?>
   <ul>
-      <li><a href="<?php if(get_locale() == 'ru_RU') { echo '/'; } elseif(get_locale() == 'en_US') { echo '/en/'; } ?>send/"><?php _e('Rule for authors', 'trn'); ?></a></li>
+      <li><a href="<?php if(get_locale() == 'ru_RU') { echo '/'; } elseif(get_locale() == 'en_US') { echo '/en/'; } ?>for_authors/"><?php _e('Rule for authors', 'trn'); ?></a></li>
       
       <li><a href="<?php if(get_locale() == 'ru_RU') { echo '/'; } elseif(get_locale() == 'en_US') { echo '/en/'; } ?>rule-of-review/"><?php _e('The Procedure for Review', 'trn'); ?></a></li>
       
-      <li><a href="/send#sender"><?php _e('Submit your article', 'trn'); ?></a></li>
+      <li><a href="/send"><?php _e('Submit your article', 'trn'); ?></a></li>
       
-      <li><a href="https://www.dropbox.com/s/1q6u7u7m06nhcgn/copyright_dogovor_%D0%9C%D0%9A%D0%9C%D0%9A.doc?dl=0"><?php _e('Agreement', 'trn'); ?></a></li>
+      <li><a href="https://www.dropbox.com/s/1q6u7u7m06nhcgn/copyright_dogovor_%D0%9C%D0%9A%D0%9C%D0%9A.doc?dl=1"><?php _e('Agreement', 'trn'); ?></a></li>
   </ul>
    	       	      
 </div> 

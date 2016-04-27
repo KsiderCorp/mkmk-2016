@@ -73,7 +73,7 @@
         color: #fff;
         text-align: center;
     
-       /* background-image: url('https://c2.staticflickr.com/2/1495/26405211772_d299c54ee0.jpg');*/
+/* background-image: url('https://c2.staticflickr.com/2/1495/26405211772_d299c54ee0.jpg');*/
         background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 50%;
