@@ -18,22 +18,88 @@ $("[data-toggle]").click(function() {
     });	
 });
     
+$(".constart").click(function() {
+    var block = $(this).attr("rel");
+    var heightpar = $(block).innerHeight();
+    var textarea = block +" textarea";
+    $(block).toggle();
+    $(textarea).focus();
+    $(textarea).height(heightpar/1.5);
+});
+    
 
 $('.file_attache-block input[type="file"]').change(function () {
     this.parentNode.setAttribute('title', this.value.replace(/^.*[\\/]/, ''))
 });
+
+var svgloader = '<div class="loader" title="2"><svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve"><path fill="#f1c40f" d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z"><animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite"/></path></svg></div>';	
     
     
-// Owl
+$(".revres a").click(function(){
     
-/*$('#statistics').bxSlider({
-        nextText:'<i class="icon-chevron-right-2"></i>',
-		prevText:'<i class="icon-chevron-left-2"></i>',
-//		auto: true,
-		infiniteLoop: true,
-		pager: false,
-});*/
-  
+  var post_link = $(this).attr("href");; 
+  var meta = $(this).attr("rel");
+  var st = $(this).data("st");
+  var that = $(this); 
+    
+     $.ajaxSetup({
+            type: "POST",
+            cache:false,
+            url: post_link,
+            data: {
+                "status": st,
+                "postid": +meta,
+            },
+         
+            complete: function () {
+                console.log( 'Удача ' );
+                that.addClass(st);
+            }
+         });
+
+    $(this).html(svgloader);
+    that.load(post_link); 
+    
+      return false;
+    });	  
+    
+
+$('form.revsend').submit(function() {
+
+    $('form.revsend input[type="submit"]').fadeOut('normal', 
+       function() {
+            $(this).parent().append(svgloader);
+		});
+            
+    var ajaxpag = $(this).attr('action');
+    
+    var idarticle = $(this).find('.idarticle').val();
+    var idReviewer = $(this).find('.idReviewer').val();
+    var autmail = $(this).find('.autmail').val();
+    var letter = $(this).find('.letter').val();
+
+    $.ajaxSetup({
+            type: "POST",
+            cache:false,
+            url: ajaxpag,
+        data: {
+             "idarticle": idarticle, 
+             "idReviewer": idReviewer, 
+             "autmail": autmail, 
+             "letter": letter, 
+               },
+         
+            complete: function () {
+                console.log( 'Удача ' );
+            }
+         });
+   $(this).load(ajaxpag); 
+    
+		
+		return false;
+	});
+    
+ 
     
 
 // Lightbox

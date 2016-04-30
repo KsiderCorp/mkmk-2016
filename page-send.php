@@ -18,5 +18,19 @@
 <?php endwhile; else : ?>
 <?php endif; ?>
 
+<script>
+
+
+var numLow = '10';
+var numHigh = '999';
+var adjustedHigh = (parseFloat(numHigh) - parseFloat(numLow)) + 1;
+var numRand = Math.floor(Math.random()*adjustedHigh) + parseFloat(numLow);
+var date = new Date();
+var datlog = date.getHours()+''+date.getMinutes();
+ 
+document.getElementById('code').value = 'M'+datlog+'_'+numRand; 
+    
+  
+</script>
 	
 <?php get_footer(); ?>

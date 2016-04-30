@@ -88,18 +88,19 @@ $book = '<span class="authors">'.$aut.'</span> '.$name.' // '.$jour.' - '.$dat.'
      
  </div>      
 
+<!--
+<div class="block hide">
 
-<div class="block">
-
-    <div class="comments">
+    <div class="comments hide">
     <h3 class="center">
     <?php _e('Comments:', 'trn'); ?>
     </h3>
 
-    <?php comments_template(); ?>
+    <?php // comments_template(); ?>
 
     </div>
 </div> 
+ -->
 
  <div class="single-similar">
     

@@ -7,6 +7,7 @@ require 'function/seo.php';
 require 'function/custompost.php';
 
 require 'function/nav.php';
+require 'function/submission.php';
 
 
 function myscript() 
@@ -20,7 +21,7 @@ wp_enqueue_script( 'jquery' );
     
 wp_enqueue_script( 'mainscript', get_stylesheet_directory_uri() . '/js/main.js',false, null, true );
     
-wp_enqueue_style( 'fontss', 'https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Sans:400,700,400italic,700italic&subset=latin,cyrillic', '', 'all' );
+wp_enqueue_style( 'fontss', 'https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Serif:400|PT+Sans:400,700,400italic,700italic&subset=latin,cyrillic', '', 'all' );
 	
 // Likes
 wp_enqueue_style( 'social', get_template_directory_uri() . '/addons/social-likes/likely.css', '', 'all' );

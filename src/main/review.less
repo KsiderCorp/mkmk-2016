@@ -1,0 +1,138 @@
+// main: ../style.less
+
+.block_for-review {
+    background-color: #fff;
+    padding-top: 2em;
+    margin-bottom: 2em;
+}
+
+.for-review {
+    &-content {
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+    }
+    &-entitel {
+        
+    }
+    &-excerpt {
+        
+    }
+    &-comment {
+        margin: 0.5em 0;
+        padding: 1em;
+        background-color: #f1f1f1;
+        font-size: 0.8em;
+    }
+    
+    &-download {
+        text-align: center;
+        padding-top: 2em;
+        
+        a {
+           display: block;
+           display: inline-block;
+           padding: 1em;
+           width: 33.333%;
+           color: #fff;
+           background-color: #3498db;
+           .upper(1em);
+           text-decoration: none;
+          &:hover {
+               background-color: #2980b9;
+            }
+        }
+    }
+    
+    &-acceptline {
+        
+        .link {
+            position: relative;
+            text-align: center;
+            background-color: #313131;
+            font-size: 3em;
+            line-height: 100%;
+            a {
+                display: block;
+                padding: 0.3em 0;
+                text-decoration: none;
+                color: #fff;
+                
+                
+                .loader svg{
+                  height: 1em;  
+                }
+                
+                &.constart {
+                    cursor: pointer;
+                }
+             }
+            &.decline a{
+                background-color: #e74c3c;
+                &:hover {
+                    background-color: #c0392b;
+                }
+                
+                &.deny {
+                     //:2px solid #c0392b;
+                    background-color: #d35400;
+                } 
+            }           
+            &.accept a{
+                background-color: #1abc9c;
+                &:hover {
+                    background-color: #16a085;
+                }
+            }
+            
+            
+        }
+    }
+}
+
+
+.conversation {
+    display: none;
+    position: absolute;
+    top: 0;bottom: 0;right: 0;left: 0;
+    background-color: #fff;
+    
+    form {
+       textarea {
+            font-family: 'PT Serif', serif;    
+            box-sizing: border-box;
+            width: 100%;
+            display: block;
+            position: relative;
+            border: 0;  
+            white-space: pre-wrap;
+            word-wrap: break-word;
+
+            outline: none;
+            resize: none;
+            z-index: 0;
+            font-size: 1.5em;
+        }
+        input[type=submit] {
+            display: inline-block;
+            text-align: center;
+            margin-top: 0.2em;
+            
+            background-color: #34495e;
+            border: 0;
+            
+            color: #fff;
+            
+            -webkit-transition: all .4s ease-in-out;
+            transition: all .4s ease-in-out;
+            
+            font-size: 1em;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            
+            padding: 0.4em 1em;
+            text-align: center;
+        }
+        
+    }
+        }
