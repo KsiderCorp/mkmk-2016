@@ -4,8 +4,35 @@
     background-color: #fff;
     padding-top: 2em;
     margin-bottom: 2em;
+    
+    &.deny {
+        box-shadow: inset 0 0 0 5px #e74c3c;
+        position: relative;
+        &:before {
+            position: absolute;
+            top: 0;right: 0;
+            background-color: #e74c3c;
+            color: #fff;
+            content: 'Отклонено';
+            padding: 0.5em;
+        }
+      }
+ &.access {
+     box-shadow: inset 0 0 0 5px #27ae60;
+        
+        position: relative;
+        &:before {
+            position: absolute;
+            top: 0;right: 0;
+            background-color: #27ae60;
+            color: #fff;
+            content: 'Принято';
+            padding: 0.5em;
+        }
+    }
 }
 
+    
 .for-review {
     &-content {
     width: 80%;
@@ -92,12 +119,44 @@
 
 
 .conversation {
-    display: none;
-    position: absolute;
+
+    position: fixed;
     top: 0;bottom: 0;right: 0;left: 0;
-    background-color: #fff;
+    
+    background-color: rgba(49,49,49,0.5);
+    z-index: 16;
+    padding: 2em;
+   
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center ;
+    -webkit-align-items: center ;
+    -ms-flex-align: center ;
+    align-items: center ;
+    
+    visibility: hidden;
+
+    
     
     form {
+      width: 80%;
+      margin: 0 auto;
+      background-color: #fff; 
+      padding: 2em;  
+       position: relative;
+        .close_letter {
+            position: absolute;
+            right: 1em;top: 1em;
+            font-size: 2em;
+            cursor: pointer;
+            z-index: 2;
+        }  
+        
        textarea {
             font-family: 'PT Serif', serif;    
             box-sizing: border-box;

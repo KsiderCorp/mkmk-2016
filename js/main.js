@@ -19,13 +19,30 @@ $("[data-toggle]").click(function() {
 });
     
 $(".constart").click(function() {
+    
     var block = $(this).attr("rel");
-    var heightpar = $(block).innerHeight();
+    var heightpar = $("body").innerHeight();
     var textarea = block +" textarea";
-    $(block).toggle();
-    $(textarea).focus();
-    $(textarea).height(heightpar/1.5);
+    var val = $(textarea).val();
+    
+    $(block).css("visibility", "visible");
+    $(textarea)
+        .height(heightpar/1.5)
+        .focus()
+        .val("")
+        .val(val);
+    $("html").css("overflow-y","hidden");
 });
+
+$(".close_letter").click(function() {
+
+    var block = $(this).attr("rel");
+    $(block).css("visibility", "hidden");
+  
+    $("html").css("overflow-y","auto");
+});
+    
+    
     
 
 $('.file_attache-block input[type="file"]').change(function () {

@@ -1,5 +1,39 @@
 <?php
 
+add_action('post_updated', 'prefix_on_update_author', 10, 3);
+function prefix_on_update_author($post_ID, $post_after, $post_before)
+{
+if ($post_after->post_type == 'submision') {
+    if ($post_after->post_author != $post_before->post_author) {
+      $new_author = $post_after->post_author; 
+        
+      $user = get_user_by('id', $new_author);  
+      $a_email = $user->user_email;
+      $a_name = $user->user_nicename;
+       
+    $subject = "[МКМК] Статья добавлена" ;
+	
+    $template = "<p>Новая статья добавлена для рецензирования, список статей <a href='http://mkmk.ras.ru/reviewers-area/'>здесь</a></p>";
+    $from = "info@mkmk.ras.ru";
+    $headers  = "From: МКМК <".$from.">\r\n";
+    $headers .= "Reply-To: <".$from.">\r\n";
+    $headers .= "MIME-Version: 1.0\r\n";
+    $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+
+    wp_mail($a_email, $subject, $template, $headers);
+    
+    $commentdata =  $commentdata = array(
+	'comment_post_ID'      => $post_after->ID,
+	'comment_author'       => 'Админ',
+	'comment_content'      => 'Владелец сменился! Новый владелец '.$a_name,
+    'comment_approved' => 1, 
+    );   
+    wp_new_comment( $commentdata );
+    }
+   } 
+    
+}
+
 function rus2translit($string) {
     $converter = array(
         'а' => 'a',   'б' => 'b',   'в' => 'v',
