@@ -20,6 +20,7 @@ echo $current_user->display_name;
 <?php the_content(); ?>
 </div>
 
+<hr>
 
 <?php if ( is_user_logged_in() ) {?>
 
@@ -40,13 +41,14 @@ $amail = get_post_meta( $post->ID, 'autmail', true );
 $phone = get_post_meta( $post->ID, 'auphone', true ); 
 $aut = get_the_term_list( $post->ID, 'name', '', ', ', '' );
     
+$status = get_post_meta( $post->ID, 'review', true );     
+    
 $pid = $post->ID;
     
 ?>  
 
 
-
-<div class="block_for-review">
+<div class="block_for-review <?php echo $status; ?>">
    
     <div class="for-review-content">
         <div class="for-review-entitel">
@@ -70,20 +72,27 @@ $pid = $post->ID;
             </div>    
         <?php } ?>  
             
+     </div>   
         
-        
-        <div id="letter" class="id<?php echo $pid;?> conversation">
-            <form action="<?php bloginfo('template_url'); ?>/function/meta.php" method="post" class="revsend">
+<div id="letter" class="id<?php echo $pid;?> conversation" >
+           
+     
+           
+<form action="<?php bloginfo('template_url'); ?>/function/meta.php" method="post" class="revsend">
+ 
+<a rel=".id<?php echo $pid;?>" class="close_letter">
+ <i class="icon-close-empty"></i>
+</a>             
                 <input type="hidden" name="idies" value="<?php echo $pid;?>" class="idarticle">
                 <input type="hidden" name="revID" value="<?php echo $user;?>" class="idReviewer">
                 <input type="hidden" name="mailto" value="<?php echo $amail;?>" class="autmail">
                 
-                <textarea name="letter" id="" name="lettertext" class="letter">Уважаемый <?php echo strip_tags($aut); ?></textarea>
+                <textarea name="letter" id="" name="lettertext" class="letter">Уважаемый <?php echo strip_tags($aut); ?>, </textarea>
                 
-                <input type="submit">
-            </form>
-        </div>
-    </div>
+      <input type="submit">
+</form>
+</div>
+    
     
     <div class="for-review-download">
         <a href="<?php echo $manurl; ?>">Скачать текст</a>
@@ -107,9 +116,9 @@ $pid = $post->ID;
             </div>
             <div class="pure-u-1-3">
                 <div class="link contact">
-         <a rel=".id<?php echo $pid;?>" class="constart">
+<a rel=".id<?php echo $pid;?>" class="constart">
              <i class="icon-envelope"></i>
-         </a>
+</a>
                 </div>
             </div>
         </div>
@@ -120,7 +129,11 @@ $pid = $post->ID;
 <?php wp_reset_postdata(); ?>
 <?php endwhile; ?> 
 
-<?php } else { echo 'Вы не залогинены!';} ?>
+<?php } else {
+    echo '<div class="block_for-review">';
+    echo '<a href="'.wp_login_url( get_permalink() ).'" title="Войти">Войти</a>';
+    echo '</div>';
+} ?>
 
 </div>
 
