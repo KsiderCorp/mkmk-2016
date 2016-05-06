@@ -92,7 +92,13 @@ $news = array(
       <li><a href="/send"><?php _e('Submit your article', 'trn'); ?></a></li>
       
       <li><a href="https://www.dropbox.com/s/1q6u7u7m06nhcgn/copyright_dogovor_%D0%9C%D0%9A%D0%9C%D0%9A.doc?dl=1"><?php _e('Agreement', 'trn'); ?></a></li>
+      
+      <li>
+<?php if ( is_user_logged_in() ) { ?><a href="/reviewers-area/"><?php _e('Reviewer&#x27;s area', 'trn'); ?></a><?php } ?>       
+      </li>
   </ul>
+                       
+                     
    	       	      
 </div> 
               

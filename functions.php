@@ -1,6 +1,7 @@
 <?php
 
 require 'function/header_less.php';
+// require 'function/single.php';
 require 'function/etc.php';
 require 'function/shortcode.php';
 require 'function/seo.php';

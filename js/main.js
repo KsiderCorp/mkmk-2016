@@ -33,15 +33,16 @@ $(".constart").click(function() {
         .val(val);
     $("html").css("overflow-y","hidden");
 });
-
-$(".close_letter").click(function() {
+    
+$(document).on("click", ".close_letter", function(event){
 
     var block = $(this).attr("rel");
     $(block).css("visibility", "hidden");
   
     $("html").css("overflow-y","auto");
-});
     
+});  
+ 
     
     
 
@@ -76,7 +77,7 @@ $(".revres a").click(function(){
 
     $(this).html(svgloader);
     that.load(post_link); 
-    
+    window.setTimeout(function(){location.reload()},1000) 
       return false;
     });	  
     
@@ -111,7 +112,7 @@ $('form.revsend').submit(function() {
             }
          });
    $(this).load(ajaxpag); 
-    
+   window.setTimeout(function(){location.reload()},1000) 
 		
 		return false;
 	});

@@ -10,33 +10,33 @@ function metachang(){
    $status = $_POST['status'];
    update_post_meta($postid, 'review', $status); 
     
-/*if($_POST['status'] == 'deny') {
+
+if($_POST['status'] == 'access') {
+      $my_post = array();
+      $my_post['ID'] = $postid;
+      $my_post['post_author'] = 1;
+
+      wp_update_post( $my_post );
+      wp_set_object_terms( $postid, 'access', 'status' );
+    }
     
-   
-   $lettertext = '';
-  
-   $autmail = $_POST['autmail'];
-
-  $subject = "[МКМК] Сообщение от рецензента" ;
-	
-    // body	
-    $template = "<p>".$lettertext."</p>";
-
-
-    $from = "info@mkmk.ras.ru";
-    $headers  = "From: МКМК <".$from.">\r\n";
-    $headers .= "Reply-To: <".$from.">\r\n";
-    $headers .= "MIME-Version: 1.0\r\n";
-    $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
-
-    wp_mail($autmail, $subject, $template, $headers);
-}*/
+if($_POST['status'] == 'deny') {
     
-    echo '<i class="icon-36-lander"></i>'; 
+      $my_post = array();
+      $my_post['ID'] = $postid;
+      $my_post['post_author'] = 1;
+
+      wp_update_post( $my_post );
+      wp_set_object_terms( $postid, 'deny', 'status' );
+}   
+    
+    
+    echo '<i class="icon-check-mark-4"></i>'; 
 
 }
 
 if(isset($_POST['status'])):
+    
     metachang();
 
 elseif(isset($_POST['letter'])): 
@@ -73,7 +73,8 @@ elseif(isset($_POST['letter'])):
 
     wp_new_comment( $commentdata );
      
-    echo 'Сообщение отправлено';
+    echo 'Сообщение отправлено <a class="close_letter"><i class="icon-close-empty"></i></a>';
+
 
 else: 
 //    echo print_r($_POST);

@@ -13,13 +13,12 @@ get_header(); ?>
 $current_user = wp_get_current_user();
 echo $current_user->display_name;
 ?></h2>
-<p><?php the_content(); ?></p>
+
 </div>
 
 <div class="page-content">
 <?php the_content(); ?>
 </div>
-
 <hr>
 
 <?php if ( is_user_logged_in() ) {?>
@@ -52,7 +51,7 @@ $pid = $post->ID;
    
     <div class="for-review-content">
         <div class="for-review-entitel">
-          <h4><?php the_title(); ?></h4>
+          <h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
             <div class="man-authors">
                <a href="mailto:<?php echo $amail; ?>"><?php echo strip_tags($aut); ?></a>
                 

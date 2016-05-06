@@ -20,6 +20,15 @@
 
 <script>
 
+function generatePassword() {
+    var length = 25,
+        charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+        retVal = "";
+    for (var i = 0, n = charset.length; i < length; ++i) {
+        retVal += charset.charAt(Math.floor(Math.random() * n));
+    }
+    return retVal;
+}    
 
 var numLow = '10';
 var numHigh = '999';
@@ -28,7 +37,7 @@ var numRand = Math.floor(Math.random()*adjustedHigh) + parseFloat(numLow);
 var date = new Date();
 var datlog = date.getHours()+''+date.getMinutes();
  
-document.getElementById('code').value = 'M'+datlog+'_'+numRand; 
+document.getElementById('passgen').value = generatePassword(); 
     
   
 </script>

@@ -43,6 +43,10 @@
         
     }
     &-excerpt {
+        font-size: 1.2em;
+        p {
+            line-height: 2em;
+        }
         
     }
     &-comment {
@@ -61,12 +65,17 @@
            display: inline-block;
            padding: 1em;
            width: 33.333%;
-           color: #fff;
-           background-color: #3498db;
+           // color: #fff;
+           // background-color: ;
+            margin: 1em 0;
+            border: 2px solid #3498db;
+            border-radius: 6px;
            .upper(1em);
            text-decoration: none;
           &:hover {
-               background-color: #2980b9;
+              // background-color: #2980b9;
+              border: 2px solid #d35400;
+              color: #d35400;
             }
         }
     }
@@ -101,8 +110,7 @@
                 }
                 
                 &.deny {
-                     //:2px solid #c0392b;
-                    background-color: #d35400;
+                   background-color: #d35400;
                 } 
             }           
             &.accept a{
@@ -141,23 +149,24 @@
     
     visibility: hidden;
 
-    
+
     
     form {
       width: 80%;
       margin: 0 auto;
-      background-color: #fff; 
       padding: 2em;  
-       position: relative;
-        .close_letter {
+      position: relative;
+      background-color: #fefce3;  
+  
+ .close_letter {
             position: absolute;
             right: 1em;top: 1em;
             font-size: 2em;
             cursor: pointer;
             z-index: 2;
         }  
-        
        textarea {
+            background-color: #fefce3;
             font-family: 'PT Serif', serif;    
             box-sizing: border-box;
             width: 100%;
@@ -168,9 +177,10 @@
             word-wrap: break-word;
 
             outline: none;
-            resize: none;
+           /* resize: none;*/
             z-index: 0;
             font-size: 1.5em;
+            color: #313131;
         }
         input[type=submit] {
             display: inline-block;
@@ -195,3 +205,131 @@
         
     }
         }
+
+// single 
+
+.srev {
+    
+    background-color: #fff;
+    padding: 1em;
+    
+    &_content {
+        
+    font-size: 1.2em;
+        p {
+            line-height: 2em;
+        }
+        
+    }   
+    &_content-titel {
+        
+    }   
+    &_content-abstract {
+        
+    }
+    
+    
+    &_status {
+        background-color: #bdc3c7;
+        text-align: center;
+        color: #fff;
+        margin:-1em;
+        margin-top: 0;
+        
+        .status {
+           display: block; 
+           position: relative;  
+            &:before {
+                display: block;
+                content: 'В процессе';
+                padding: 1em;
+            }
+            
+         &.deny {              
+             &:before {
+                    background-color: #e74c3c;
+                    content: 'Отклонено';
+                 }
+              }
+         &.access {
+                &:before {
+                    background-color: #27ae60;
+                    content: 'Принято';
+                }
+            }
+          }
+    }
+    
+    &_comments {
+        h3 {
+            text-align: center;
+            color: #fff;
+        }
+        
+        .srev_comment {
+            background-color: #9b59b6;
+            color: #fff;
+            padding: 1em;
+            margin: 1em 0;
+        }
+        
+        .constart {
+            text-align: center;
+            color: #fff;
+            font-size: 1.2em;
+            cursor: pointer;
+            border-bottom: 2px dashed #fff;
+        }
+    }
+    
+    
+    &.nonloged {
+        
+        position: fixed;
+        top: 0;bottom: 0;left: 0;right: 0;
+        z-index: 16;
+        
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        
+        -webkit-justify-content: center;
+        -moz-justify-content: center;
+        -ms-justify-content: center;
+        -o-justify-content: center;
+        justify-content: center;
+        
+        -ms-align-items: center;
+        align-items: center;
+        
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

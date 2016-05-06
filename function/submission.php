@@ -25,13 +25,12 @@ if ($post_after->post_type == 'submision') {
     $commentdata =  $commentdata = array(
 	'comment_post_ID'      => $post_after->ID,
 	'comment_author'       => 'Админ',
-	'comment_content'      => 'Владелец сменился! Новый владелец '.$a_name,
+	'comment_content'      => 'Смена ответсвенного: '.$a_name,
     'comment_approved' => 1, 
     );   
     wp_new_comment( $commentdata );
     }
    } 
-    
 }
 
 function rus2translit($string) {
@@ -65,45 +64,87 @@ function rus2translit($string) {
 
 add_action( 'init', 'create_submision' );
 
+// Hide protected posts
+
+function exclude_protected($where) {
+	global $wpdb;
+	return $where .= " AND {$wpdb->posts}.post_password = '' ";
+}
+// Where to display protected posts
+function exclude_protected_action($query) {
+	if( !is_single() && !is_page() && !is_admin() ) {
+		add_filter( 'posts_where', 'exclude_protected' );
+	}
+}
+// Action to queue the filter at the right time
+add_action('pre_get_posts', 'exclude_protected_action');
+
+
 function create_submision() {
-register_post_type( 'submision',
-array(
-'labels' => array(
-'name' => __( 'Заявки' ),
-'singular_name' => __( 'Заявка' ),
-'add_new' => 'Добавить',
-'add_new_item' => 'Добавить',
-'edit' => 'Редактировать',
-'edit_item' => 'Редактировать',
-'new_item' => 'Добавить страницу',
-'view' => 'Просмотр',
-'view_item' => 'Перейти',
-'search_items' => 'Search',
-'not_found' => 'Не найдено',
-'not_found_in_trash' =>
-'В корзине пусто',
-'parent' => 'Parent'
-),
-'public' => true,
-'menu_position' => 128,
-'show_in_nav_menus' => true,
-'supports' =>
-array( 'title', 'editor', 'excerpt', 'custom-fields', 'author', 'comments' ),
-'menu_icon' => 'dashicons-nametag',
-'has_archive' => false
-) ); }
+register_post_type( 
+    'submision',
+    array(
+        'labels'        => array(
+        'name'          => __( 'Заявки' ),
+        'singular_name' => __( 'Заявка' ),
+        'add_new'       => 'Добавить',
+        'add_new_item'  => 'Добавить',
+        'edit'          => 'Редактировать',
+        'edit_item'     => 'Редактировать',
+        'new_item'      => 'Добавить страницу',
+        'view'          => 'Просмотр',
+        'view_item'     => 'Перейти',
+        'search_items'  => 'Search',
+        'not_found'     => 'Не найдено',
+        'not_found_in_trash' => 'В корзине пусто',
+        'parent'        => 'Parent'
+    ),
+        'public'        => true,
+        'menu_position' => 128,
+        'show_in_nav_menus' => true,
+ //     'rewrite'       => false,
+        'supports' => array( 
+                        'title', 
+                        'editor', 
+                        'excerpt', 
+                        'custom-fields', 
+                        'author', 
+                        'comments' 
+                        ),
+        'menu_icon'     => 'dashicons-nametag',
+        'has_archive'   => false
+      ) 
+  ); 
+}
 
 add_action( 'init', 'create_name', 0 );
 function create_name(){
 register_taxonomy(
         'name',
-		'members', array(
+		'submision', array(
         'labels' => array(
 		'name' => 'Имя заявителя',
         'add_new_item' => 'Add New',
         'new_item_name' => "New Type"
           ),
         'show_ui' => true,
+        'show_tagcloud' => false,
+        'hierarchical' => false
+       )
+	);
+}
+
+add_action( 'init', 'create_status', 0 );
+function create_status(){
+register_taxonomy(
+        'status',
+		'submision', array(
+        'labels' => array(
+		'name' => 'Статус',
+        'add_new_item' => 'Add New',
+        'new_item_name' => "New Type"
+          ),
+        'show_ui' => false,
         'show_tagcloud' => false,
         'hierarchical' => false
        )
@@ -127,29 +168,30 @@ function mytheme_save_post( $cf7 ) {
 			$fio = $data['posted_data']['text-name'];
 			$entitle = $data['posted_data']['text-entitel'];
 			$content = $data['posted_data']['textarea-abstr'];
-			
+			$password = $data['posted_data']['passgen'];
               
                 
-			$impthem = str_replace(","," ",$entitle);
-			
-			$template = htmlspecialchars(strip_tags($content, '<br><br/><a></a><strong></strong><sub></sub>'));
-			$postdatta = '<h2>'.$impthem.'</h2>'.$template;
-			
-			
-           
             
-        $random = date('d').rand(0,100);
-        $docnamesrc = $data['posted_data']['file-manuscript'];
-        $docat = rus2translit($fio.'_'.$docnamesrc);
-        $document = $data['uploaded_files']['file-manuscript'];
+	$titel_slug = rus2translit($entitle);
+            
+	$template = htmlspecialchars(strip_tags($content, '<br><br/><a></a><strong></strong><sub></sub>'));
+ 		     
+    $random = date('d').rand(0,100);
+            
+    $docnamesrc = $data['posted_data']['file-manuscript']; 
+    $docat = rus2translit($fio.'_'.$docnamesrc);
+            
+    $document = $data['uploaded_files']['file-manuscript'];
             
     $cont = file_get_contents($document);
             
     $new_file_name = $docat;
             
     $upload = wp_upload_bits( $new_file_name, null, $cont, 'manf/'.date('m') );
-
-    $manurl = '';             
+            
+    
+            
+    $manurl = ''; 
             if( $upload['error'] )
 	$manurl = $upload['error'];
             else
@@ -159,12 +201,14 @@ function mytheme_save_post( $cf7 ) {
             $post = array(
               'comment_status' => 'closed',
               'ping_status'    => 'closed',
-              'post_status'    => 'private',
+              'post_status'    => 'publish',
               'post_type'      => 'submision',
+       //     'post_password' => $password,
               'post_title'     => $entitle,
+              'post_name'      => $titel_slug,
 			  'post_author'   => 1,
               'post_content'   => $template,
-			  'post_excerpt' => '',
+			  'post_excerpt' => 'Пароль записи: '.$password,
                 );
             
             $postId = wp_insert_post($post);
@@ -173,6 +217,7 @@ function mytheme_save_post( $cf7 ) {
 			add_post_meta($postId, 'autmail', $email);
 			add_post_meta($postId, 'auphone', $phone);
 			add_post_meta($postId, 'docurl', $manurl);
+			add_post_meta($postId, 'password', $password);
             
 		    return $postId;
         }
