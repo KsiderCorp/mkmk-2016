@@ -88,19 +88,33 @@ $book = '<span class="authors">'.$aut.'</span> '.$name.' // '.$jour.' - '.$dat.'
      
  </div>      
 
-<!--
-<div class="block hide">
 
-    <div class="comments hide">
-    <h3 class="center">
-    <?php _e('Comments:', 'trn'); ?>
-    </h3>
+<div class="block ">
 
-    <?php // comments_template(); ?>
+   
+<?php 
+$news = array( 
+    'post_type'=>'news',
+    'posts_per_page' => 1, 
+    'orderby'=> 'date',      
+);     
+    $new = get_posts( $news );  
+    foreach ($new as $post) :  setup_postdata($post);
+?> 
 
-    </div>
+ <div class="advertisen">
+   <a href="<?php the_permalink(); ?>"></a>
+    <span><?php the_title(); ?></span>
+
+<?php the_excerpt(); ?>
+</div>
+<?php wp_reset_postdata(); ?>
+<?php endforeach;  ?> 
+   
+   
+    
 </div> 
- -->
+
 
  <div class="single-similar">
     

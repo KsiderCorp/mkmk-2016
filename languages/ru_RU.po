@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MKMK2016\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tags/twentyfifteen\n"
-"POT-Creation-Date: 2016-04-08 12:38+0300\n"
-"PO-Revision-Date: 2016-04-08 12:38+0300\n"
+"POT-Creation-Date: 2016-05-11 10:55+0300\n"
+"PO-Revision-Date: 2016-05-11 10:55+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -21,71 +21,79 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: js\n"
 "X-Poedit-SearchPathExcluded-1: addons\n"
 
-#: front-page.php:73
-msgid "To Authors"
-msgstr "Для авторов"
+#: 404.php:125
+msgid "Old Site"
+msgstr "Старый сайт"
 
-#: front-page.php:79
-msgid "Rule for authors"
-msgstr "Правила для авторов"
+#: 404.php:129
+msgid "Home"
+msgstr "Главная"
 
-#: front-page.php:81
-msgid "The Procedure for Review"
-msgstr "Правила рецензирования"
-
-#: front-page.php:83
-msgid "Submit your article"
-msgstr "Отправить свою статью"
-
-#: front-page.php:85 page-send.php:19
-msgid "Agreement"
-msgstr "Договр"
-
-#: front-page.php:91 template/footer.php:77
-msgid "7/1 Leningradsky prospect, Moscow 125040 RUSSIA"
-msgstr "125040, Россия, Москва, Ленинградский пр., 7"
-
-#: front-page.php:111
+#: front-page.php:26 front-page.php:144
 msgid "Editorial office"
 msgstr "Редакция"
 
-#: front-page.php:126
-msgid "Editors"
-msgstr "Редакторы"
-
-#: front-page.php:143
+#: front-page.php:27 front-page.php:176
 msgid "Archive"
 msgstr "Архив"
+
+#: front-page.php:28
+msgid "Map"
+msgstr "Карта"
+
+#: front-page.php:40
+msgid "To Authors"
+msgstr "Для авторов"
+
+#: front-page.php:46
+msgid "Rule for authors"
+msgstr "Правила для авторов"
+
+#: front-page.php:48
+msgid "The Procedure for Review"
+msgstr "Правила рецензирования"
+
+#: front-page.php:50 template/for_autors.php:27
+msgid "Submit your article"
+msgstr "Отправить свою статью"
+
+#: front-page.php:52 template/for_autors.php:23
+msgid "Agreement"
+msgstr "Договр"
+
+#: front-page.php:55
+msgid "Reviewer&#x27;s area"
+msgstr "Зона рецензента"
+
+#: front-page.php:67 template/footer.php:77
+msgid "7/1 Leningradsky prospect, Moscow 125040 RUSSIA"
+msgstr "125040, Россия, Москва, Ленинградский пр., 7"
+
+#: front-page.php:159
+msgid "Editors"
+msgstr "Редакторы"
 
 #: page-authors.php:12
 msgid "Write name"
 msgstr "Введите имя"
 
-#: page-send.php:20
-msgid "Example"
-msgstr "Пример"
-
-#: page-send.php:21
-msgid "Rule of review"
-msgstr "Правила рецензирования"
-
 #: sidebar.php:6
 msgid "MKMK"
 msgstr "МКМК"
 
-#: single.php:21
-msgid "UDK:"
-msgstr "УДК:"
-
-#: single.php:28 template/bread.php:4
-msgid "Pages:"
-msgstr "Страницы:"
-
-#: single.php:46
+#: single-submision.php:37 single.php:47 single/single.php:47
 msgid "Abstract:"
 msgstr "Аннотация:"
 
-#: single.php:95
+#: single.php:21 single/single.php:21
+msgid "UDK:"
+msgstr "УДК:"
+
+#: single.php:28 single/single.php:28 template/bread.php:4
+msgid "Pages:"
+msgstr "Страницы:"
+
+#: single/single.php:96
 msgid "Comments:"
 msgstr "Комментарии:"
 
@@ -109,6 +117,10 @@ msgstr "Ключевые слова"
 msgid "TOP 10"
 msgstr "Топ 10"
 
+#: template/for_autors.php:25
+msgid "Rule of review"
+msgstr "Правила рецензирования"
+
 #: template/latest.php:2
 msgid "recent"
 msgstr "Последние"
@@ -121,9 +133,12 @@ msgstr "Рейтинг статей"
 msgid "since 8 april 2016"
 msgstr "c 8 апреля 2016"
 
-#: template/statistics.php:55
+#: template/statistics.php:57
 msgid "Authors Top 10"
 msgstr "Рейтинг авторов"
+
+#~ msgid "Example"
+#~ msgstr "Пример"
 
 #~ msgid "Most viewed Articles"
 #~ msgstr "Просматриваемые статьи"

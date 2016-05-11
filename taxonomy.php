@@ -43,7 +43,7 @@ $image = wp_get_attachment_image_src( $attachment_id, $size );?>
 <div class="taxcount">
 <?php  echo ' ('. _e('Number:', 'trn'); echo $counte; echo ')' ; ?>
 </div>
-<?php  echo $description; ?>
+<p><?php  echo $description; ?></p>
 
 <div class="hide"><?php // fresh_kap_views() ?></div>
 

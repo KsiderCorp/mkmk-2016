@@ -85,17 +85,54 @@ body {
             font-family: @heading;
             overflow: hidden;
          }
+     
+     
+     &_menu {
+         ul {
+             margin: 0; padding: 0; display: block;
+             li {
+              display: inline-block;
+              padding: 1em;
+                 padding-left: 0;
+                 a {
+                     font-size: 1.2em;
+                     color: #fff;
+                     text-decoration: none;
+                     border-bottom: 2px dashed #fff;
+                 }
+                 
+                 &.active {
+                     a {
+                         border-bottom: 0;
+                         color: #f39c12;
+                     }
+                 }
+             }
+         }
+         
+         &.getfix {
+             position: fixed;
+             top: 10%;
+             left: 2em;
+             ul {
+                 li {
+                     display: block;
+                 }
+             }
+         } 
+     }  
   }   
     
     &-main {
-        background-color: #fff;
+        background-color: #f1f1f1;
         padding: 2em;
-        margin-right: 1em;
+        margin-left: 1rem;
+        font-size: 0.8em;
     }
     
     &-forauthors {
         padding: 2em;
-        margin-left: 1rem;
+        margin-right: 1rem;
         border: 3px dashed #fff;
         border-bottom: 0;
         
@@ -104,7 +141,7 @@ body {
     &-authors {
         background-color: #fff;
         padding: 2em;
-        margin-left: 1em;
+        margin-right: 1em;
         
         ul {
             margin: 0;
@@ -134,7 +171,7 @@ body {
     }
     &-adress {
         padding: 0.5em;
-        margin-left: 1em;
+        margin-right: 1em;
         margin-top: 1em;
         position: relative;
         z-index: 3;
@@ -153,7 +190,7 @@ body {
 }
 
 .latest_articles {
-    margin-left: 1em;
+    margin-right: 1em;
     margin-top: 1em;
     background-color: #fff;
     padding: 1em;
