@@ -1,4 +1,13 @@
 $(document).ready(function() {
+    
+$.fn.exists = function(callback) {
+  var args = [].slice.call(arguments, 1);
+  if (this.length) {
+    callback.call(this, args);
+  }
+  return this;
+};	
+    
 	$("a.scrollto, a[href*='#'").click(function() {
 		var elementClick = $(this).attr("href")
 		var destination = $(elementClick).offset().top;
@@ -8,14 +17,15 @@ $(document).ready(function() {
 		return false; 
     });
     
-
-$("[data-toggle]").click(function() {
-    var $lefty = $(this).prev();
-    $lefty.animate({
-      left: parseInt($lefty.css('left'),10) == 0 ?
-        -$lefty.outerWidth() :
-        0
-    });	
+$('#editors').exists(function() {	
+var menu = document.getElementById('#editors');
+$(window).scroll(function() {
+	if (($('#editors').offset().top) <= $(this).scrollTop()) {
+		$('#fastnav').addClass('getfix');
+	} else {
+		$('#fastnav').removeClass('getfix');;
+	}
+});
 });
     
 $(".constart").click(function() {

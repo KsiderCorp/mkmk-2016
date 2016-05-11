@@ -36,7 +36,7 @@ Coffee cup of // nikolaysemenov.ru
 
 
 </head>
-<body data-spy="scroll" data-offset="50" data-target="#spyed">
+<body data-spy="scroll" data-offset="100" data-target="#fastnav">
 
 <div class="body_wraper">
 <?php get_sidebar(); ?>
