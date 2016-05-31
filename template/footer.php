@@ -73,7 +73,6 @@
 
 <div class="copyright">1995<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, <?php bloginfo("name"); ?> 
 </div>
-
 <?php _e('7/1 Leningradsky prospect, Moscow 125040 RUSSIA', 'trn'); ?><br>
 +7 495 946-18-06, <a href="mailto:mkmk@iam.ras.ru">mkmk@iam.ras.ru</a>
 

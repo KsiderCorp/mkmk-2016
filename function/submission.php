@@ -211,15 +211,41 @@ function mytheme_save_post( $cf7 ) {
 			  'post_excerpt' => 'Пароль записи: '.$password,
                 );
             
-            $postId = wp_insert_post($post);
-			wp_set_object_terms( $postId, $fio, 'name' );
+    $postId = wp_insert_post($post);
+	wp_set_object_terms( $postId, $fio, 'name' );
 		
 			add_post_meta($postId, 'autmail', $email);
 			add_post_meta($postId, 'auphone', $phone);
 			add_post_meta($postId, 'docurl', $manurl);
 			add_post_meta($postId, 'password', $password);
+    
             
-		    return $postId;
+            
+	// prepare email	    
+   
+    $purl = get_the_permalink( $postId );       
+    $purl_get =  $purl.'?pass='.$password; 
+            
+    $subject = "[МКМК] Статья добавлена" ;
+            
+	$semail = $email;
+            
+    $email_content = "<p>
+Ваша статья добавлена для рецензирования<br>
+Название: «<strong>".$entitle."</strong>»</p>
+<p>Проверить статус можно <a href='".$purl_get."'>здесь</a>(beta)</p>
+<p>По всем вопросам можно писать на <a href='mailto:mkmk@iam.ras.ru'>mkmk@iam.ras.ru</a></p>";
+            
+    $from = "mkmk@iam.ras.ru";
+    $headers  = "From: МКМК <".$from.">\r\n";
+    $headers .= "Reply-To: <".$from.">\r\n";
+    $headers .= "MIME-Version: 1.0\r\n";
+    $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+
+    wp_mail($semail, $subject, $email_content, $headers);
+            
+       return $postId;      
+       
         }
     }
   } catch (Exception $ex) {
