@@ -21,30 +21,31 @@ add_action( 'init', 'create_employees' );
 
 function create_employees() {
 register_post_type( 'employees',
-array(
-'labels' => array(
-'name' => 'Сотрудники',
-'singular_name' => 'сотрудники',
-'add_new' => 'Добавить',
-'add_new_item' => 'Добавить',
-'edit' => 'Редактировать',
-'edit_item' => 'Редактировать',
-'new_item' => 'Добавить страницу',
-'view' => 'Просмотр',
-'view_item' => 'Перейти',
-'search_items' => 'Search',
-'not_found' => 'Не найдено',
-'not_found_in_trash' =>
-'В корзине пусто',
-'parent' => 'Parent'
-),
+    array(
+        'labels' => array(
+        'name' => 'Сотрудники',
+        'singular_name' => 'сотрудники',
+        'add_new' => 'Добавить',
+        'add_new_item' => 'Добавить',
+        'edit' => 'Редактировать',
+        'edit_item' => 'Редактировать',
+        'new_item' => 'Добавить страницу',
+        'view' => 'Просмотр',
+        'view_item' => 'Перейти',
+        'search_items' => 'Search',
+        'not_found' => 'Не найдено',
+        'not_found_in_trash' =>
+        'В корзине пусто',
+        'parent' => 'Parent'
+    ),
 'public' => true,
 'menu_position' => 110,
 'supports' =>
 array( 'title', 'editor',  ),
 'taxonomies' => array( '' ),
 'menu_icon' =>'dashicons-businessman',
-'has_archive' => true
+'has_archive' => true,
+'rewrite' => array( 'slug' => 'editor' ),       
 ) ); }
   
   add_action( 'init', 'create_emp', 0 );

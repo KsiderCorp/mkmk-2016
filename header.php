@@ -21,6 +21,8 @@ Coffee cup of // nikolaysemenov.ru
  
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<?php tp_meta_description(); ?>
+
 <meta property="og:image" content="http://mkmk.ras.ru/wp-content/themes/mf-onepage/img/mkmk.jpg" /> 
 
 <link rel="alternate" type="application/rss+xml" title="<?php get_bloginfo('name'); ?>" href="<?php bloginfo('rss2_url'); ?>" />
@@ -37,7 +39,11 @@ Coffee cup of // nikolaysemenov.ru
 
 </head>
 <body data-spy="scroll" data-offset="100" data-target="#fastnav">
-
+<style>
+    body {
+    background-image: url('<?php bloginfo("template_url"); ?>/img/bcgr_<?php echo get_locale(); ?>.jpg');    
+    }    
+</style>
 <div class="body_wraper">
 <?php get_sidebar(); ?>
 

@@ -14,7 +14,7 @@ function tp_meta_description( $home_description='', $maxchar=300 ){
         $char = iconv_strlen( $out, 'utf-8' );
         if( $char > $maxchar ){
             $out = iconv_substr( $out, 0, $maxchar, 'utf-8' );
-            $words = split(' ', $out );
+            $words = explode(' ', $out );
             $maxwords = count($words) - 1;
             $out = join(' ', array_slice($words, 0, $maxwords)).' ...';
         }

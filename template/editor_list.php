@@ -39,7 +39,8 @@ endif; ?>
 
 
 <div class="int id-<?php the_ID(); ?>">
-<span class="sns"><?php the_field('sns'); ?></span> <?php the_title(); ?>
+<span class="sns"><?php the_field('sns'); ?></span> 
+<a href="<?php the_permalink(); ?>" class="open_pop post-link" rel="<?php the_ID(); ?>" data-link="<?php echo home_url();?>/ajax/"><?php the_title(); ?></a>
 </div>
 
 

@@ -9,6 +9,7 @@
     .int {
         font-size: 1.2em;
         padding: 0.5em;
+        
         span {
             display: block;
             color: #7f8c8d;
@@ -27,5 +28,98 @@
             border-radius: 50%;
             .bgc;
         }
+        
+        a {
+            font-size: 0.9em;
+            text-decoration: none;
+            border-bottom: 1px dashed @blue;
+        }
     }
 }
+
+
+/* side toggle block */
+
+#container {
+
+    .loader {
+        color: #fff;
+        font-size: 2em;
+        padding-top: 20%;
+        text-align: center;
+        
+    z-index: 999;   
+    position: fixed;
+    top: 10%;right: 0;left: 0;
+    }
+}
+
+#sitback {
+   position: fixed;
+   z-index: 997;
+  	top: 0; right:0; bottom: 0;	left: -100%; 
+    background-color: #313131;
+    opacity:0; 
+    
+    .animation;
+}
+
+.side-toggle {
+    &_wrap {
+    
+    box-shadow: -2px 0 10px #2c3e50;
+    background-color: #2980b9;
+    color: #fff;
+
+    position: fixed;
+	top: 0; right: -2500px; bottom: 0; 
+    z-index: 999;
+    overflow-y: scroll;
+    width: 45%;
+    padding:2em;
+ 
+    }
+    
+    &_cover {
+        text-align: center;
+        img {
+           max-height: 300px;
+        }
+    }
+    &_title {
+        text-align: center;
+        .position {
+         font-size: 0.8em;
+         color: #bdc3c7;
+         padding-top: 1em; 
+        }
+     a,
+     span
+        {
+          display: inline-block;
+          font-size: 1.5em;
+          font-weight: bold;
+          color: #fff;
+          padding: 0.5em 0;
+        }
+    }   
+    &_contacts {
+        text-align: center;
+        font-size: 0.9em;
+        a {
+            color: #fff;
+        } 
+    }    
+    &_content {
+        padding: 2em 0;
+        a {
+            color: #f1c40f;
+        }
+    }
+    
+}
+
+
+
+
+/* side toggle block */

@@ -1,13 +1,13 @@
 <nav>
     <div class="navigation <?php if ( is_front_page() ) :  else : echo 'nonfp'; endif ; ?>">
        
-        <div class="logotype ileft <?php if(is_front_page()) { echo 'fp_logo'; } else { echo 'non_fp'; } ?>">
+<div class="logotype ileft <?php if(is_front_page()) { echo 'fp_logo'; } else { echo 'non_fp'; } ?>">
         <span class="item">
     <a href="<?php if(get_locale() == 'ru_RU') { echo '/'; } elseif(get_locale() == 'en_US') { echo '/en/'; } ?>"><?php _e('MKMK', 'trn'); ?></a>
         </span>
-        </div>
+</div>
         
-        <div class="rightnav iright">
+       <div class="rightnav iright">
 
        <div class="item">
            

@@ -74,7 +74,7 @@
         
   font-size: 1.2em;
   letter-spacing: .2em;
-  text-transform: uppercase;
+ // text-transform: uppercase;
 
         padding: 5% 0;
         
@@ -115,11 +115,34 @@
 
 // keywords
 
+.kewords_menu {
+
+ width: 20%; 
+ position: fixed;
+ left: 0;
+ overflow: auto;
+    
+    a {
+        font-size: 1.2em;
+        color: #fff;
+        padding: 0.8em;
+        display: inline-block;
+        text-decoration: none;
+        &:hover {
+            color: #e74c3c;
+        }
+    }
+}
+
 .kewords {
     background-color: #fff;
     width: 60%;
     margin: 0 auto;
     text-align: justify;
+    
+    padding: 2em;
+    
+    
     a {
         text-decoration: none;
     }

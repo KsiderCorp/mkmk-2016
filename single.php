@@ -58,13 +58,14 @@
              <div class="pure-u-1-2">
              
 <div class="tag_cloud">
+<h4><?php _e('Keywords:', 'trn'); ?></h4>
 <?php the_tags('', ', '); ?>
 </div>
             
              </div>
              <div class="pure-u-1-2">
 
-                         
+ <h4><?php _e('Bookmarks:', 'trn'); ?></h4>                        
 <div class="bookmarks">
 
 <?php
@@ -75,7 +76,10 @@ $dat =  get_the_time('Y');
 $cat =  get_the_category_list(' - ', '', $post->ID); 
 $pages = get_field('pages');
     
-$book = '<span class="authors">'.$aut.'</span> '.$name.' // '.$jour.' - '.$dat.' - '.$cat.'-'.$pages; 
+$pp = __('p', 'trn');
+//  $pp = _e('p.', 'trn');
+    
+$book = '<span class="authors">'.$aut.'</span> '.$name.' // '.$jour.' - '.$dat.' - '.$cat.' - '.$pp.': '.$pages; 
   echo  strip_tags($book, '<span></span>');  
 ?>
 
